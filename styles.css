@@ -1,0 +1,337 @@
+/* ===== Document-style Resume ===== */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #333333;
+    --text-color: #222222;
+    --muted-color: #555555;
+    --border-color: #d1d1d1;
+    --section-border: #1a1a1a;
+    --light-gray: #f3f3f3;
+    --page-bg: #e9ebee;
+    --white: #ffffff;
+    --link-color: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Calibri', 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: var(--text-color);
+    background-color: var(--page-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page container - light gray page with white document */
+.container {
+    max-width: 850px;
+    margin: 1.5rem auto;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 1rem 2rem;
+    position: relative;
+}
+
+/* White paper document */
+.resumeDocument {
+    background-color: var(--white);
+    padding: 2.2rem 2.4rem 1.8rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+}
+
+/* Print button - floating above document */
+.print-button {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    z-index: 10;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.print-button button {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.2s;
+}
+
+.print-button button:hover {
+    background-color: #000000;
+}
+
+/* ===== Header ===== */
+.docName {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    letter-spacing: 0.4px;
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+}
+
+.docContactLine {
+    text-align: center;
+    font-size: 8.7pt;
+    color: var(--muted-color);
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+    word-spacing: 0.5px;
+}
+
+.docContactLine a {
+    color: var(--muted-color);
+    text-decoration: none;
+}
+
+.docContactLine a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.contactSep {
+    margin: 0 0.35rem;
+    color: #999;
+    font-weight: 400;
+}
+
+/* ===== Section Headers ===== */
+.docSectionHeader {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1.4px solid var(--section-border);
+    padding-bottom: 0.22rem;
+    margin-top: 1.15rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.2;
+}
+
+.docSectionHeader:first-of-type {
+    margin-top: 0.6rem;
+}
+
+/* ===== Paragraphs & Skill Lines ===== */
+.docParagraph {
+    font-size: 10pt;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 0.45rem;
+    text-align: left;
+}
+
+.docSkillLine {
+    font-size: 10pt;
+    color: var(--text-color);
+    line-height: 1.45;
+    margin-bottom: 0.18rem;
+}
+
+.docSkillLabel {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ===== Entry Titles / Meta ===== */
+.docEntryTitle {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0.65rem;
+    margin-bottom: 0.15rem;
+    line-height: 1.35;
+}
+
+.docEntryTitle:first-of-type {
+    margin-top: 0.3rem;
+}
+
+.docEntryMeta {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
+
+.docEntryMeta--sub {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted-color);
+    font-size: 9.5pt;
+    margin-top: 0.05rem;
+    margin-bottom: 0.2rem;
+}
+
+/* ===== Bullets ===== */
+.docBullets {
+    list-style-type: disc;
+    margin-left: 1.25rem;
+    margin-bottom: 0.35rem;
+    padding-left: 0;
+}
+
+.docBullets li {
+    font-size: 10pt;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 0.18rem;
+}
+
+.docBullets li::marker {
+    color: #444;
+}
+
+/* ===== Links generic ===== */
+a {
+    color: var(--link-color);
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    @page {
+        margin: 0.5in 0.55in;
+        size: A4;
+    }
+
+    body {
+        background-color: var(--white) !important;
+        font-size: 10pt;
+        line-height: 1.4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .resumeDocument {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .print-button {
+        display: none !important;
+    }
+
+    .docName {
+        font-size: 20pt;
+        margin-bottom: 0.25rem;
+    }
+
+    .docContactLine {
+        font-size: 8.5pt;
+        margin-bottom: 0.7rem;
+    }
+
+    .docSectionHeader {
+        font-size: 9.5pt;
+        margin-top: 0.75rem;
+        margin-bottom: 0.35rem;
+        border-bottom-width: 1.2px;
+        break-after: avoid;
+    }
+
+    .docParagraph,
+    .docSkillLine,
+    .docBullets li {
+        font-size: 9.5pt;
+        line-height: 1.4;
+    }
+
+    .docEntryTitle,
+    .docEntryMeta {
+        font-size: 9.5pt;
+    }
+
+    .docEntryMeta--sub {
+        font-size: 9pt;
+    }
+
+    .docBullets {
+        margin-bottom: 0.25rem;
+    }
+
+    .docBullets li {
+        margin-bottom: 0.12rem;
+    }
+
+    /* Avoid breaks inside sections */
+    .docEntryTitle,
+    .docEntryMeta {
+        break-after: avoid;
+    }
+
+    .docBullets {
+        break-inside: avoid;
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+    .container {
+        margin: 0.5rem auto;
+        padding: 0 0.5rem 1rem;
+    }
+
+    .resumeDocument {
+        padding: 1.4rem 1.2rem 1.2rem;
+    }
+
+    .docName {
+        font-size: 18pt;
+    }
+
+    .docContactLine {
+        font-size: 8pt;
+        line-height: 1.6;
+    }
+
+    .contactSep {
+        margin: 0 0.25rem;
+    }
+
+    .print-button {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 0.7rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .docContactLine {
+        display: block;
+        text-align: center;
+    }
+
+    .docContactLine a {
+        white-space: nowrap;
+    }
+}
